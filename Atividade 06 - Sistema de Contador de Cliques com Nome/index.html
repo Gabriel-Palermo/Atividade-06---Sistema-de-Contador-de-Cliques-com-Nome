@@ -72,29 +72,24 @@
     let contador = 0;
     let nome = '';
 
-    // Evento: quando tecla for pressionada no input
     nomeInput.addEventListener('keydown', function (event) {
       console.log(`Tecla pressionada: ${event.key}`);
     });
 
-    // Evento: quando o valor do input for alterado
     nomeInput.addEventListener('input', function () {
       nome = nomeInput.value;
     });
 
-    // Evento: clique no botão
     likeBtn.addEventListener('click', function () {
       contador++;
       saudacao.innerText = nome ? `Olá, ${nome}!` : 'Olá!';
       contadorDiv.innerText = `Curtidas: ${contador}`;
     });
 
-    // Evento: quando o mouse estiver sobre o botão
     likeBtn.addEventListener('mouseover', function () {
       likeBtn.style.boxShadow = '0 0 10px #ff9100';
     });
 
-    // Evento: quando o mouse sair do botão
     likeBtn.addEventListener('mouseout', function () {
       likeBtn.style.boxShadow = 'none';
     });
