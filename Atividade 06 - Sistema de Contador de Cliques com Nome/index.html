@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contador de Cliques com Nome</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 120px;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    #likeBtn {
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      font-size: 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #likeBtn:hover {
+      background-color: #9e0404;
+    }
+
+    input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin-top: 20px;
+    }
+
+    #contador {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Sistema de Curtidas</h1>
+    <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
+    <br><br>
+    <button id="likeBtn">Curtir 👍</button>
+    <h2 id="saudacao">Olá!</h2>
+    <div id="contador">Curtidas: 0</div>
+  </div>
+
+  <script>
+    const nomeInput = document.getElementById('nomeUsuario');
+    const likeBtn = document.getElementById('likeBtn');
+    const saudacao = document.getElementById('saudacao');
+    const contadorDiv = document.getElementById('contador');
+
+    let contador = 0;
+    let nome = '';
+
+    // Evento: quando tecla for pressionada no input
+    nomeInput.addEventListener('keydown', function (event) {
+      console.log(`Tecla pressionada: ${event.key}`);
+    });
+
+    // Evento: quando o valor do input for alterado
+    nomeInput.addEventListener('input', function () {
+      nome = nomeInput.value;
+    });
+
+    // Evento: clique no botão
+    likeBtn.addEventListener('click', function () {
+      contador++;
+      saudacao.innerText = nome ? `Olá, ${nome}!` : 'Olá!';
+      contadorDiv.innerText = `Curtidas: ${contador}`;
+    });
+
+    // Evento: quando o mouse estiver sobre o botão
+    likeBtn.addEventListener('mouseover', function () {
+      likeBtn.style.boxShadow = '0 0 10px #ff9100';
+    });
+
+    // Evento: quando o mouse sair do botão
+    likeBtn.addEventListener('mouseout', function () {
+      likeBtn.style.boxShadow = 'none';
+    });
+  </script>
+
+</body>
+</html>
